@@ -14,7 +14,7 @@ pipeline {
         stage('SonarQube scan') {
             steps {
                 withSonarQubeEnv('sonar-server') {
-                    sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=fola-wishes -Dsonar.projectName=fola-wishes"
+                    sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Folarin -Dsonar.projectName=Folarin"
                 }
             }
         }
