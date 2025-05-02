@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', sans-serif;
+    background: url('https://www.transparenttextures.com/patterns/confetti.png') repeat, #fef5f5;
+    text-align: center;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #ffffffdd;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin-top: 5rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  h1 {
+    font-family: 'Pacifico', cursive;
+    color: #e63946;
+    font-size: 2.5rem;
+  }
+  
+  h1 span {
+    display: block;
+    font-size: 3rem;
+    color: #1d3557;
+  }
+  
+  .photo-frame {
+    margin: 2rem 0;
+  }
+  
+  .photo-frame img {
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .message {
+    font-size: 1.3rem;
+    color: #457b9d;
+  }
+  
+  /* Balloons */
+  .balloon-container {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .balloon {
+    width: 40px;
+    height: 60px;
+    border-radius: 50% 50% 45% 45%;
+    position: absolute;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .red { background: #e63946; left: 10%; animation-delay: 0s; }
+  .blue { background: #1d3557; left: 30%; animation-delay: 1s; }
+  .green { background: #2a9d8f; left: 50%; animation-delay: 2s; }
+  .yellow { background: #f4a261; left: 70%; animation-delay: 3s; }
+  
+  @keyframes float {
+    0% {
+      bottom: -100px;
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-200px) rotate(10deg);
+    }
+    100% {
+      bottom: 100%;
+      transform: translateY(-400px) rotate(-10deg);
+    }
+  }

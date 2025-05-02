@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fola-svc
+  namespace: adeola-ns
+spec:
+  selector:
+    app: fola
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 32425
+  type: NodePort
