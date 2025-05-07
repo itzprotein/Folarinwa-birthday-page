@@ -7,7 +7,7 @@ pipeline {
         CONTAINER_NAME = "adeola-fola"
         ENV_NAME = "dev"
         VERSION_NAME = "v-0.0.${BUILD_NUMBER}"
-        SCANNER_HOME = tool 'sonar-scanner'
+        // SCANNER_HOME = tool 'sonar-scanner'
     }
     
     stages {
