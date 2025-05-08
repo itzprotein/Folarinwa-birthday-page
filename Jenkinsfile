@@ -7,17 +7,17 @@ pipeline {
         CONTAINER_NAME = "adeola-fola"
         ENV_NAME = "dev"
         VERSION_NAME = "v-0.0.${BUILD_NUMBER}"
-        SCANNER_HOME = tool 'sonar-scanner'
+        // SCANNER_HOME = tool 'sonar-scanner'
     }
     
     stages {
-        stage('SonarQube scan') {
-            steps {
-                withSonarQubeEnv('sonar-server') {
-                    sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Folarin -Dsonar.projectName=Folarin"
-                }
-            }
-        }
+        // stage('SonarQube scan') {
+        //     steps {
+        //         withSonarQubeEnv('sonar-server') {
+        //             sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Folarin -Dsonar.projectName=Folarin"
+        //         }
+        //     }
+        // }
         stage("Docker Build") {
             steps {
                 sh "docker build -t ${IMAGE_NAME}:v-0.0.${IMAGE_TAG} ."
