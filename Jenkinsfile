@@ -7,17 +7,17 @@ pipeline {
         CONTAINER_NAME = "adeola-fola"
         ENV_NAME = "dev"
         VERSION_NAME = "v-0.0.${BUILD_NUMBER}"
-        // SCANNER_HOME = tool 'sonar-scanner'
+        SCANNER_HOME = tool 'sonar-scanner'
     }
     
     stages {
-        // stage('SonarQube scan') {
-        //     steps {
-        //         withSonarQubeEnv('sonar-server') {
-        //             sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Folarin -Dsonar.projectName=Folarin"
-        //         }
-        //     }
-        // }
+        stage('SonarQube scan') {
+            steps {
+                withSonarQubeEnv('sonar-server') {
+                    sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Folarin -Dsonar.projectName=Folarin"
+                }
+            }
+        }
         stage("Docker Build") {
             steps {
                 sh "docker build -t ${IMAGE_NAME}:v-0.0.${IMAGE_TAG} ."
@@ -48,7 +48,7 @@ pipeline {
            steps {
             //    sh "docker run -d --name ${CONTAINER_NAME} -p 3436:5000 -e USER=adeola ${IMAGE_NAME}:v-0.0.${IMAGE_TAG}"
             script {
-                    kubeconfig(credentialsId: '2f7c4fdc-cc4f-4497-b205-0be337879a60', serverUrl: '') {
+                    kubeconfig(credentialsId: '0035eefa-1fb8-4a7c-83b3-68f7cfa9eff8', serverUrl: '') {
                         // some block
                         sh "sed -i 's|IMAGE_NAME|${IMAGE_NAME}:v-0.0.${IMAGE_TAG}|g' k8s/deploy.yaml"
                         // sh "sed -i 's|ENV_NAME|${ENV_NAME}|g' k8s/deploy.yaml"
